@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+id="WebApp_ID" version="3.0">
+ <display-name>servletpostusingxml</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>demoHome</servlet-name>
+  	<servlet-class>in.prec.servletpostusingxml.postdemo.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>demoHome</servlet-name>
+  	<url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>demoAboutUs</servlet-name>
+  	<servlet-class>in.prec.servletpostusingxml.postdemo.AboutUsServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>demoAboutUs</servlet-name>
+  	<url-pattern>/about_us</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>demoRegister</servlet-name>
+  	<servlet-class>in.prec.servletpostusingxml.postdemo.RegisterServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>demoRegister</servlet-name>
+  	<url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>demoStudentRegister</servlet-name>
+  	<servlet-class>in.prec.servletpostusingxml.postdemo.RegisterStudentServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>demoStudentRegister</servlet-name>
+  	<url-pattern>/studentregister</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
