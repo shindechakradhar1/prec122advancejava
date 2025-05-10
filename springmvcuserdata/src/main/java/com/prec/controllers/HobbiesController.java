@@ -7,32 +7,32 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.prec.controllers.entities.Movie;
+import com.prec.controllers.entities.Hobby;
 
 @Controller
-@RequestMapping("/movies")
-public class MoviesController {
+@RequestMapping("/hobbies")
+public class HobbiesController {
 
 	@GetMapping("")
-	public String getMoviesHomePage() {
-		return "movies/movieshome";
+	public String getHobbiesHome() {
+		return "hobbies/hobbieshome";
 	}
 	
 	@GetMapping("/new")
-	public String newMovies(Model model) {
-		model.addAttribute("movie", new Movie());
-		return "movies/newmovies";
-	}
-	
-	@PostMapping("/reg")
-	public String addMovies(@ModelAttribute Movie movie) {
-		System.out.println(movie);
+	public String addHobbies(Model model) {
+		model.addAttribute("hobby", new Hobby());
+		return "hobbies/newhobbies";
 		
+	}
+	@PostMapping("/reg")
+	public String newHobbies(@ModelAttribute Hobby hobby) {
+		System.out.println(hobby);
 		return "success";
 	}
 	
 	@GetMapping("/all")
-	public String getAllMovies() {
-		return "movies/allmovies";
+	public String getAllHobbies() {
+		return "hobbies/allhobbies";
 	}
+	
 }

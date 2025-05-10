@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,20 +17,40 @@
 		<div class="row">
 			<div class="col-12">
 				<ul class="nav nav-tabs">
+
 					<li class="nav-item"><a class="nav-link" href="home">home</a></li>
-					<li class="nav-item"><a class="nav-link" href="movies/new">Add New</a></li>
-					<li class="nav-item"><a class="nav-link" href="movies/all">All Movies</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="movies">movies</a></li>
-					
+
 				</ul>
 			</div>
 		</div>
-		<div class="row gy-3">
-			<div class="col-12">
-				<h1 class="pt-5">Home Page Content</h1>
+		<form:form action="reg" method="POST" modelAttribute="hobby">
+			<div class="row gy-3 mt-5">
+				<div class="col-4">
+					<span class="input-group-text" id="addon-wrapping">Hobby Name</span>
+				</div>
+				<div class="col-8">
+					<div class="input-group flex-nowrap">
+						<form:input path="hobbyName" type="text" class="form-control"
+							placeholder="Username" aria-label="Username"
+							aria-describedby="addon-wrapping" />
+					</div>
+				</div>
 			</div>
-		</div>
+			
+			
+			
+			
+			
+			<div class="row mt-5">
+				<div class="col-4"></div>
+				<div class="col-4">
+					<button type="submit" class="btn btn-success">Add Movie</button>
+				</div>
+				<div class="col-4"></div>
+			</div>
+		</form:form>
 
 	</div>
 

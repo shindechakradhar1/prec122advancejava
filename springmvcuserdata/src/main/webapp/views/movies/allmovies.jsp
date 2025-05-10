@@ -17,17 +17,17 @@
 			<div class="col-12">
 				<ul class="nav nav-tabs">
 					<li class="nav-item"><a class="nav-link" href="home">home</a></li>
-					<li class="nav-item"><a class="nav-link" href="movies/new">Add New</a></li>
-					<li class="nav-item"><a class="nav-link" href="movies/all">All Movies</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="movies">movies</a></li>
-					
+						aria-current="page" href="#">All Movies</a></li>
+
 				</ul>
 			</div>
 		</div>
 		<div class="row gy-3">
 			<div class="col-12">
-				<h1 class="pt-5">Home Page Content</h1>
+				<table class="table table-striped mt-5">
+					...
+				</table>
 			</div>
 		</div>
 
