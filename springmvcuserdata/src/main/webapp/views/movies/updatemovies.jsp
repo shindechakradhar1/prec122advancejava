@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>New Movies</title>
+<title>Update Movies</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,64 +17,55 @@
 		<div class="row">
 			<div class="col-12">
 				<ul class="nav nav-tabs">
+
 					<li class="nav-item"><a class="nav-link" href="/springmvcuserdata/movies">Movies</a></li>
-					<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">New Movies</a></li>
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Update Movies</a></li>
 				</ul>
 			</div>
 		</div>
-		<form:form action="reg" method="POST" modelAttribute="movie">
+		<form:form action="/springmvcuserdata/movies/update" method="POST" modelAttribute="movie">
 			<div class="row gy-3 mt-5">
-				<div class="col-2">
+				<div class="col-4">
+					<span class="input-group-text" id="addon-wrapping">Movie Name: </span>
 				</div>
-				<div class="col-2">
-					<span class="input-group-text" id="addon-wrapping">Movie Name:</span>
-				</div>
-				<div class="col-6">
+				<div class="col-8">
 					<div class="input-group flex-nowrap">
+						<form:hidden path="id" />
 						<form:input path="movieName" type="text" class="form-control"
-							placeholder="Enter Movie Name.." aria-label="Username"
+							placeholder="Username" aria-label="Username"
 							aria-describedby="addon-wrapping" />
 					</div>
 				</div>
-				<div class="col-2">
-				</div>
 			</div>
 			<div class="row gy-3 mt-5">
-				<div class="col-2">
-				</div>
-				<div class="col-2">
+				<div class="col-4">
 					<span class="input-group-text" id="addon-wrapping">Release Date:</span>
 				</div>
-				<div class="col-6">
+				<div class="col-8">
 					<div class="input-group flex-nowrap">
 						<form:input path="releaseDate" type="date" class="form-control"
-							placeholder="Release Date.." aria-label="Username"
+							placeholder="Username" aria-label="Username"
 							aria-describedby="addon-wrapping" />
 					</div>
-				</div>
-				<div class="col-2">
 				</div>
 			</div>
+			
 			<div class="row gy-3 mt-5">
-				<div class="col-2">
+				<div class="col-4">
+					<span class="input-group-text" id="addon-wrapping">Actor Name: </span>
 				</div>
-				<div class="col-2">
-					<span class="input-group-text" id="addon-wrapping">Actor Name:</span>
-				</div>
-				<div class="col-6">
+				<div class="col-8">
 					<div class="input-group flex-nowrap">
 						<form:input path="actorName" type="text" class="form-control"
-							placeholder="Enter Actor Name.." aria-label="Username"
+							placeholder="Username" aria-label="Username"
 							aria-describedby="addon-wrapping" />
 					</div>
-				</div>
-				<div class="col-2">
 				</div>
 			</div>
 			<div class="row mt-5">
 				<div class="col-4"></div>
 				<div class="col-4 text-center">
-					<button type="submit" class="btn btn-success">Add Movie</button>
+					<button type="submit" class="btn btn-warning">Update Movie</button>
 				</div>
 				<div class="col-4"></div>
 			</div>

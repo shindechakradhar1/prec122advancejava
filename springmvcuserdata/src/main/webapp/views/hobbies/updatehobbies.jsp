@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>New Hobbies</title>
+<title>Update Hobbies</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,23 +17,22 @@
 		<div class="row">
 			<div class="col-12">
 				<ul class="nav nav-tabs">
-
 					<li class="nav-item"><a class="nav-link" href="/springmvcuserdata/hobbies">Hobbies</a></li>
-					<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">New Hobbies</a></li>
-
+					<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Update Hobbies</a></li>
 				</ul>
 			</div>
 		</div>
-		<form:form action="reg" method="POST" modelAttribute="hobby">
+		<form:form action="/springmvcuserdata/hobbies/update" method="POST" modelAttribute="hobby">
 			<div class="row gy-3 mt-5">
 				<div class="col-2"></div>
 				<div class="col-2">
-					<span class="input-group-text" id="addon-wrapping">Hobby Name:</span>
+					<span class="input-group-text" id="addon-wrapping">Hobby Name</span>
 				</div>
 				<div class="col-6">
 					<div class="input-group flex-nowrap">
+						<form:hidden path="id" />
 						<form:input path="hobbyName" type="text" class="form-control"
-							placeholder="Enter Hobby" aria-label="Username"
+							placeholder="Enter Hobbies" aria-label="Username"
 							aria-describedby="addon-wrapping" />
 					</div>
 				</div>
@@ -42,7 +41,7 @@
 			<div class="row mt-5">
 				<div class="col-4"></div>
 				<div class="col-4 text-center">
-					<button type="submit" class="btn btn-success">Add HObbies</button>
+					<button type="submit" class="btn btn-success">Update Hobbies</button>
 				</div>
 				<div class="col-4"></div>
 			</div>
