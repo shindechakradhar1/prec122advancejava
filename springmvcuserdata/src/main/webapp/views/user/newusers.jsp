@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.prec.entities.Movie" %>
+<%@ page import="com.prec.entities.Hobby" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
@@ -22,7 +26,7 @@
 				</ul>
 			</div>
 		</div>
-		<form:form action="reg" method="POST" modelAttribute="movie">
+		<form:form action="reg" method="POST" modelAttribute="user">
 			<div class="row gy-3 mt-5">
 				<div class="col-2"></div>
 				<div class="col-2">
@@ -30,7 +34,7 @@
 				</div>
 				<div class="col-6">
 					<div class="input-group flex-nowrap">
-						<form:input path="movieName" type="text" class="form-control"
+						<form:input path="name" type="text" class="form-control"
 							placeholder="Enter User Name.." aria-label="Username"
 							aria-describedby="addon-wrapping" />
 					</div>
@@ -44,7 +48,7 @@
 				</div>
 				<div class="col-6">
 					<div class="input-group flex-nowrap">
-						<form:input path="releaseDate" type="text" class="form-control"
+						<form:input path="age" type="text" class="form-control"
 							placeholder="Enter User Age" aria-label="Username"
 							aria-describedby="addon-wrapping" />
 					</div>
@@ -58,15 +62,15 @@
 				</div>
 				<div class="col-6">
 					<div class="form-check form-check-inline">
-						<form:radiobutton class="form-check-input" path="movieName" id="inlineRadio1" value="male" />
+						<form:radiobutton class="form-check-input" path="gender" id="inlineRadio1" value="male" />
 						<label class="form-check-label" for="inlineRadio1">Male</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<form:radiobutton class="form-check-input" path="movieName" id="inlineRadio2" value="female" />
+						<form:radiobutton class="form-check-input" path="gender" id="inlineRadio2" value="female" />
 						<label class="form-check-label" for="inlineRadio2">Female</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<form:radiobutton class="form-check-input" path="movieName" id="inlineRadio2" value="Others" />
+						<form:radiobutton class="form-check-input" path="gender" id="inlineRadio2" value="Others" />
 						<label class="form-check-label" for="inlineRadio2">Others</label>
 					</div>
 				</div>
@@ -79,7 +83,7 @@
 				</div>
 				<div class="col-6">
 					<div class="input-group flex-nowrap">
-						<form:input path="actorName" type="text" class="form-control"
+						<form:input path="address.area" type="text" class="form-control"
 							placeholder="Enter Area.." aria-label="Username"
 							aria-describedby="addon-wrapping" />
 					</div>
@@ -93,7 +97,7 @@
 				</div>
 				<div class="col-6">
 					<div class="input-group flex-nowrap">
-						<form:input path="actorName" type="text" class="form-control"
+						<form:input path="address.pincode" type="text" class="form-control"
 							placeholder="Enter Pincode.." aria-label="Username"
 							aria-describedby="addon-wrapping" />
 					</div>
@@ -107,14 +111,17 @@
 					<span class="input-group-text" id="addon-wrapping">Hobbies: </span>
 				</div>
 				<div class="col-6">
+				<%
+					List<Hobby> hobbies=(List<Hobby>)request.getAttribute("hobbiesList");
+					for(Hobby hobby:hobbies){
+				%>
 					<div class="form-check form-switch form-check-inline">
-						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"> 
-						<label class="form-check-label" for="flexSwitchCheckDefault">Hobby 1</label>
+						<form:checkbox path="hobbiesSet" value="<%=hobby.getId() %>" class="form-check-input" role="switch" id="flexSwitchCheckDefault" /> 
+						<label class="form-check-label" for="flexSwitchCheckDefault"><%=hobby.getHobbyName() %></label>
 					</div>
-					<div class="form-check form-switch form-check-inline">
-						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"> 
-						<label class="form-check-label" for="flexSwitchCheckDefault">Hobby 2</label>
-					</div>
+				<%
+					}
+				%>
 				</div>
 				<div class="col-2"></div>
 			</div>
@@ -125,14 +132,17 @@
 					<span class="input-group-text" id="addon-wrapping">Movies: </span>
 				</div>
 				<div class="col-6">
+				<% 
+					List<Movie> movies = (List<Movie>)request.getAttribute("movieList");
+					for(Movie movie:movies){
+				%>
 					<div class="form-check form-switch form-check-inline">
-						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"> 
-						<label class="form-check-label" for="flexSwitchCheckDefault">Movie 1</label>
+						<form:checkbox path="movieList" value="<%= movie.getId() %>" class="form-check-input" role="switch" id="flexSwitchCheckDefault" /> 
+						<label class="form-check-label" for="flexSwitchCheckDefault"><%= movie.getMovieName() %></label>
 					</div>
-					<div class="form-check form-switch form-check-inline">
-						<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"> 
-						<label class="form-check-label" for="flexSwitchCheckDefault">Movie 2</label>
-					</div>
+				<%
+					}				
+				%>
 				</div>
 				<div class="col-2"></div>
 			</div>

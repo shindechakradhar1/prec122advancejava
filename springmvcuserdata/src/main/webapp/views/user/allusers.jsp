@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.List" %>
+<%@ page import="com.prec.entities.User" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,28 +33,39 @@
 							<td class="text-center text-capitalize font-weight-bold">Gender</td>
 							<td class="text-center text-capitalize font-weight-bold">Area</td>
 							<td class="text-center text-capitalize font-weight-bold">PinCode</td>
+							<td class="text-center text-capitalize font-weight-bold">Hobbies</td>
+							<td class="text-center text-capitalize font-weight-bold">Movies</td>
 							<td class="text-center text-capitalize font-weight-bold text-warning">Update</td>
 							<td class="text-center text-capitalize font-weight-bold text-danger">Delete</td>
 						</tr>
 					</thead>
 					<tbody>
+					<%
+						List<User> users = (List<User>)request.getAttribute("users");
+						for(User user:users){
+					%>
 						<tr>
-							<td class="text-center">User 1</td>
-							<td class="text-center">21</td>
-							<td class="text-center">Male</td>
-							<td class="text-center">Loni</td>
-							<td class="text-center">410001</td>
+							<td class="text-center"><%= user.getName() %></td>
+							<td class="text-center"><%= user.getAge() %></td>
+							<td class="text-center"><%= user.getGender() %></td>
+							<td class="text-center"><%= user.getAddress().getArea() %></td>
+							<td class="text-center"><%= user.getAddress().getPincode() %></td>
+							<td class="text-center"><%= user.getHobbiesSet() %></td>
+							<td class="text-center"><%= user.getMovieList() %></td>
 							<td class="text-center">
-								<a href="#">
+								<a href="/springmvcuserdata/users/update/id/<%= user.getId() %>">
 									<button type="button" class="btn btn-warning">Update</button>
 								</a>
 							</td>
 							<td class="text-center">
-								<a href="#">
+								<a href="/springmvcuserdata/users/delete/id/<%= user.getId() %>">
 									<button type="button" class="btn btn-danger">Delete</button>
 								</a>
 							</td>
 						</tr>
+					<%
+						} 
+					%>
 					</tbody>
 				</table>
 			</div>

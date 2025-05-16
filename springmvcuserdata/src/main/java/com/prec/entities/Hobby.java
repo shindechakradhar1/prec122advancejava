@@ -1,5 +1,7 @@
 package com.prec.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,7 +44,22 @@ public class Hobby {
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if (obj == null || obj.getClass() != this.getClass())
+			return false;
+		if (this == obj)
+			return true;
+		Hobby temp = (Hobby) obj;
+		return (this.id == temp.id && this.hobbyName.equals(temp.hobbyName));
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, hobbyName);
+	}
+
+	@Override
 	public String toString() {
-		return "Hobby [id=" + id + ", hobbyName=" + hobbyName + "]";
+		return hobbyName + " ";
 	}
 }

@@ -1,5 +1,7 @@
 package com.prec.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -61,11 +63,25 @@ public class Movie {
 	public void setActorName(String actorName) {
 		this.actorName = actorName;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj==null || obj.getClass()!=this.getClass())
+			return false;
+		if(this==obj)
+			return true;
+		Movie temp = (Movie) obj;
+		return (this.id==temp.id && this.movieName.equals(temp.movieName) && this.releaseDate.equals(temp.releaseDate));
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, movieName, releaseDate);
+	}
 
 	@Override
 	public String toString() {
-		return "Movie [id=" + id + ", movieName=" + movieName + ", releaseDate=" + releaseDate + ", actorName="
-				+ actorName + "]";
+		return movieName + " ";
 	}
 
 }
